@@ -1,4 +1,4 @@
-const key = 'xFwXjYrCzqAAXVpCQIYTN6CJFT1gQtyp';
+const key = 'AfWUGfziBKLgyAKcjy5G8irIPKLBgPKT';
 
 // get weather info
 const getWeather = async (id) => {
@@ -19,6 +19,5 @@ const getCity = async (city) => {
   const response = await fetch(base + query);
   const data = await response.json();
 
-  console.log(data[0]);
   return data[0];
 };

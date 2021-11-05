@@ -6,12 +6,8 @@ const time = document.querySelector('img.time');
 const icon = document.querySelector('.icon img');
 
 // update ui
-const updateIU = (data) => {
-  const { cityDets, weather } = data;
-
-  if (!cityDets || !weather) {
-    console.log('no details');
-  }
+const updateIU = (cityData) => {
+  const { cityDets, weather } = cityData;
 
   details.innerHTML = `
         <h5 class="my-3">${cityDets.EnglishName}</h5>
@@ -25,13 +21,7 @@ const updateIU = (data) => {
   const iconSrc = `img/icons/${weather.WeatherIcon}.svg`;
   icon.setAttribute('src', iconSrc);
 
-  let timeSrc = null;
-  if (weather.IsDayTime) {
-    timeSrc = '/img/day.svg';
-  } else {
-    timeSrc = '/img/night.svg';
-  }
-
+  let timeSrc = weather.IsDayTime ? '/img/day.svg' : '/img/night.svg';
   time.setAttribute('src', timeSrc);
 
   if (card.classList.contains('d-none')) {
